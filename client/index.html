@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- <link href="topcoat/css/topcoat-mobile-dark.min.css" rel="stylesheet"> -->
+    <style>
+        .my-img {
+            height: 100px;
+            width: 100px;
+        }
+        .my-caption {
+            position: relative;
+        }
+        .item-quantity {
+            border-radius: 51px;
+            border: 1px solid #008000;
+            width: 29px;
+            height: 24px;
+            /* position: absolute; */
+            top: -45px;
+            background: #371EF0;
+            color: #FFF;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 20px;
+            padding-top: 5px;
+        }
+        #push {
+            margin-top: 40px;
+        }
+        .my-thumbnail {
+            width: 150px;
+            float: left !important;
+            height: 150px;
+            padding: 5px;
+        }
+        .back-button {
+            width: 26%;
+            float: left;
+        }
+        .res-icon {
+            width: 72%;
+            float: right;
+        }
+        .menu-type-icon {
+            width: 5%;
+            float: left;
+        }
+        .menu-type-name {
+            width: 90%;
+        }
+        .arrow-icon {
+            width: 4%;
+        }
+        .nav,
+        .pagination,
+        .carousel a {
+            cursor: pointer;
+        }
+        #wrap {
+            min-height: 500px;
+            height: auto !important;
+            height: 100%;
+            /* Negative indent footer by it's height */
+            margin: 0 auto -60px;
+        }
+        /* Set the fixed height of the footer here */
+        #push,
+        #footer {
+            height: 60px;
+        }
+        #footer {
+            background-color: #f5f5f5;
+        }
+    </style>
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-touch.js"></script>
+    <script src="lib/angular-resource.js"></script>
+    <script src="lib/angular-animate.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/ui-bootstrap-tpls-0.6.0.min.js"></script>
+    <script src="lib/jquery-1.7.1.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script src="js/app.js"></script>
+
+    <script src="js/controllers.js"></script>
+    <script src="js/memory-services.js"></script>
+    <script src="js/rest-services.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="#">{{allData.restaurant_info.restaurant_name}}</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="active"><a href="#">Home</a>
+                        </li>
+                        <li><a href="" ng-click="open('/about')">About</a>
+                        </li>
+                        <li><a href="" ng-click="open('/contact')">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="header" class='row-fluid'>
+            <div class="container-fluid">
+                <div class="row-fluid">
+
+                    <div class='span12'>
+
+                        <div class='back-button '>
+                            <a class='{{backbuttondisplay}}' ng-click="goBack('{{backbuttonpath}}')">
+                                <img src='img/back_light.svg' />
+                            </a>
+                        </div>
+                        <div class='res-icon'>
+                            <img src="{{allData.logo_urls[0].logo_url}}" />
+                            <p class='center'>{{allData.restaurant_info.address_1}}, {{allData.restaurant_info.city_town}}</p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+        <div id="content" class='row-fluid'>
+            <div ng-view class='row-fluid' ng-class=" slide"></div>
+        </div>
+        <div id="footer" class='row-fluid'>
+            <div id="order-cart" class='row-fluid'>
+                <div class="" style="display:inline;overflow:hidden;">
+                    <div ng-repeat="(key, order) in cart" class='item' ng-class='{active:$first}' style="display:inline; float:left">
+                        <div class="">
+                            <img class='img-rounded my-img' data-src='holder.js/300*200' src="{{order.menu_item_images[1].image_url}}" alt="">
+                            <div class="caption my-caption">
+                                <h5>{{order.menu_item_name}}</h5>
+                                <span class='item-quantity'>{{order.quantity}}</span>
+                            </div>
+                        </div>
+                        </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+</body>
+
+</html>

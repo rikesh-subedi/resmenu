@@ -1,0 +1,115 @@
+<html ng-app='slideit'>
+    <head>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-touch.js"></script>
+    <script src="lib/angular-resource.js"></script>
+    <script src="lib/angular-animate.js"></script>
+    <script>
+        angular.module('slideit', ['ngAnimate','ngTouch'])
+            .controller('MainCtrl', function ($scope) { 
+                    $scope.currentPos=0;
+                    $scope.go=function(e){
+                        alert('clicked');
+                    }
+                    $scope.goLeft=function(e){
+                        //alert('goLft')
+                        //-webkit-transform: translate(-667px, 0px) translateZ(0px);
+                        $scope.currentPos=$scope.currentPos-200;
+                        $scope.slideStyle={
+                                "-webkit-transform": "translate("+$scope.currentPos+"px, 0px) translateZ(0px)"
+                        }
+                    }
+                    $scope.goRight=function(e){
+                                if($scope.currentPos < 0)
+                                $scope.currentPos=$scope.currentPos+200;
+                                $scope.slideStyle={
+                                        "-webkit-transform": "translate("+$scope.currentPos+"px, 0px) translateZ(0px)"
+                                }
+                       
+                    }
+                    $scope.cart=[{
+                        name:'first',
+                        quantity:'1'
+                    },{
+                        name:'second',
+                        quantity:'2'
+                    },{
+                        name:'third',
+                        quantity:'3'
+                    },{
+                        name:'fourth',
+                        quantity:'4'
+                    },{
+                        name:'fourth',
+                        quantity:'4'
+                    },{
+                        name:'five',
+                        quantity:'5'
+                    },{
+                        name:'six',
+                        quantity:'6'
+                    },{
+                        name:'seven',
+                        quantity:'7'
+                    },{
+                        name:'eight',
+                        quantity:'8'
+                    },{
+                        name:'nine',
+                        quantity:'9'
+                    },{
+                        name:'ten',
+                        quantity:'10'
+                    }]
+            });
+
+    </script>
+    </head>
+    <style>
+       .ng-scrollview{
+        position: relative;
+overflow: hidden;
+-webkit-user-select: none;
+-moz-user-select: none;
+       }
+       .ng-scrollview-content {
+position: relative;
+white-space: nowrap;
+}
+.ng-scrollview-list{
+
+}
+.ng-scrollview-item{
+    display: inline-block;
+}
+.ng-scrollview-box
+{
+padding: 10px 0px 0px 10px !important;
+height: 175px;
+width: 291px;
+margin: 0 0.714em;
+background: #E9E7E7;
+padding: 5px;
+-moz-box-shadow: 3px -2px 5px #e2e2e2;
+-webkit-box-shadow: 3px -2px 5px #E2E2E2;
+cursor: pointer;
+}
+    </style>
+    <body ng-controller="MainCtrl">
+        <div class='ng-scrollview ng-scrollview-horiz ng-scrollview-paged'>
+            <div class="ng-scrollview-horiz ng-scrollview-vert ng-scrollview-paged">
+                <div class="ng-scrollview-content" ng-swipe-left="goLeft()" ng-swipe-right="goRight()" ng-style="slideStyle" >
+                    <ul class="ng-scrolliview-list">
+                        <li class='ng-scrollview-item' ng-repeat="a in cart" ng-click="go()">
+                            <div class='ng-scrollview-box'>
+                                <div>{{a.name}}</div>
+                                <div>{{a.quantity}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+            
+        </div>
+    </body>
+</html>

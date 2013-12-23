@@ -1,0 +1,38 @@
+<div class='span12'>
+    <div class='row-fluid'>
+    
+    <div class="span12">
+        <div class="span4">
+        <a class="topcoat-icon-button--quiet back-button" href="" ng-click="back()">
+            <span class="topcoat-icon topcoat-icon--back"></span>
+        </a>
+        </div>
+        <div class='span6'>
+            <h1 class="topcoat-navigation-bar__title">{{menucatname}}</h1>
+        </div>
+        
+    </div>
+
+    <div class="span12 search-bar">
+        <input ng-model="query" type="search" placeholder="search" class="topcoat-search-input search-key">
+    </div>
+ </div>
+ <ul class="nav nav-tabs nav-stacked">
+     
+
+        <li  ng-repeat="menu in menutype.menu_groups | filter:query | orderBy:orderProp" class="topcoat-list__item">
+            <a ng-click="go('/menulist/'+catid+'/' + $index +'/'+menu.group_name)" class=''>
+                <span class='menu-icon '></span>
+                <span class=''>{{menu.group_name}} </span>
+                
+                
+                <span class="action-icon icon-plus pull-right">></span>
+            </a>
+            
+        </li>
+  
+ </div>
+
+    
+
+</div>

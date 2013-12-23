@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- <link href="topcoat/css/topcoat-mobile-dark.min.css" rel="stylesheet"> -->
+    <style>
+    body {
+        padding:0 !important
+    }
+.my-repeat-animation.ng-enter, 
+.my-repeat-animation.ng-leave, 
+.my-repeat-animation.ng-move {
+  -webkit-transition: 0.5s cubic-bezier(.98,0,1,.28)  all;
+  transition: 0.5s cubic-bezier(.98,0,1,.28)  all;
+  position:relative;
+}
+
+.my-repeat-animation.ng-enter {
+  left:-10px;
+  opacity:0;
+}
+.my-repeat-animation.ng-enter.ng-enter-active {
+  left:0;
+  opacity:1;
+}
+
+.my-repeat-animation.ng-leave {
+  left:0;
+  opacity:1;
+}
+.my-repeat-animation.ng-leave.ng-leave-active {
+  left:-10px;
+  opacity:0;
+}
+
+.my-repeat-animation.ng-move {
+  opacity:0.5;
+}
+.my-repeat-animation.ng-move.ng-move-active {
+  opacity:1;
+}
+
+      .slide.ng-enter, .slide.ng-leave {
+        position: relative;
+        top: 0;
+
+        -webkit-transition:all linear 1s;
+        -moz-transition:all linear 1s;
+        -ms-transition:all linear 1s;
+        -o-transition:all linear 1s;
+        transition:all linear 1s;
+      }
+
+      .slide.ng-enter {
+        line-height: 0;
+        left: 50%;
+        opacity: 0;
+      }
+
+      .slide.ng-enter-active {
+        left: 0;
+        opacity: 1;
+        line-height: 100%;
+      }
+
+      .slide.ng-leave {
+        line-height: 100%;
+        left: 0;
+        opacity: 1;
+      }
+
+      .slide.ng-leave-active {
+        left: 50%;
+        opacity: 0;
+        line-height: 0;
+      }
+        .ng-scrollview {
+            
+            position: relative;
+overflow: hidden;
+-webkit-user-select: none;
+-moz-user-select: none;
+
+padding-top: 20px;
+        }
+        .order-cart-container{
+            /* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(bottom, #EBB997 0%, #997331 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(bottom, #EBB997 0%, #997331 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(bottom, #EBB997 0%, #997331 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #EBB997), color-stop(1, #997331));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(bottom, #EBB997 0%, #997331 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: linear-gradient(to top, #EBB997 0%, #997331 100%);/* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(bottom, #EBB997 0%, #D99E77 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(bottom, #EBB997 0%, #D99E77 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(bottom, #EBB997 0%, #D99E77 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #EBB997), color-stop(1, #D99E77));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(bottom, #EBB997 0%, #D99E77 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: linear-gradient(to top, #EBB997 0%, #D99E77 100%);
+        }
+        .ng-scrollview-content {
+            position: relative;
+            white-space: nowrap;
+        }
+        .ng-scrollview-list {
+            line-height:normal;
+            padding:0;
+            margin:0 !important;
+            } 
+        .ng-scrollview-item {
+            display: inline-block;
+        }
+        .ng-scrollview-box {
+            height: 60px;
+width: 80px;
+margin: 0 0.714em;
+background: #fff;
+padding: 3px;
+cursor: pointer;
+border-radius: 5px;
+        }
+        .my-img {
+            height: 100%;
+            width: 100%
+        }
+        .my-caption {
+            position: relative;
+        }
+        .item-name{
+            width: 100%;
+overflow: hidden;
+text-overflow: ellipsis;
+background: #555;
+opacity: .6;
+margin-top: 5px;
+border-radius: 5px;
+text-align: center;
+font: 12px sans-serif;
+color: #fff;
+        }
+        .item-quantity {
+           border-radius: 2px;
+border: 1px solid #282C2A;
+position: relative;
+top: -42px;
+background: #061809;
+opacity: 0.6;
+color: #FFF;
+text-align: center;
+font-family: sans-serif;
+font-size: 12px;
+padding: 2px;
+margin: 44%;
+        }
+        #push {
+            margin-top: 40px;
+        }
+        .my-thumbnail {
+            width: 150px;
+            float: left !important;
+            height: 150px;
+            padding: 5px;
+        }
+        .back-button {
+            width: 26%;
+            float: left;
+        }
+        .res-icon {
+            width: 72%;
+            float: right;
+        }
+        .menu-type-icon {
+            width: 5%;
+            float: left;
+        }
+        .menu-item{
+            width: 98%;
+height: 150px;
+display: block;
+margin-top: 1px;
+background: #DAAC8C;
+margin: 1px auto;
+        }
+        .menu-type-name {
+            width: 90%;
+        }
+        .arrow-icon {
+            width: 4%;
+        }
+        .nav,
+        .pagination,
+        .carousel a {
+            cursor: pointer;
+        }
+        #wrap {
+            min-height: 500px;
+            height: auto !important;
+            height: 100%;
+            /* Negative indent footer by it's height */
+            margin: 0 auto -60px;
+          /* Note: This gradient may render differently in browsers that don't support the unprefixed gradient syntax */
+
+/* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(bottom left, #D99E77 0%, #7A4120 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(bottom left, #D99E77 0%, #7A4120 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(bottom left, #D99E77 0%, #7A4120 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #D99E77), color-stop(1, #7A4120));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(bottom left, #D99E77 0%, #7A4120 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: linear-gradient(to top right, #D99E77 0%, #7A4120 100%);
+        }
+        /* Set the fixed height of the footer here */
+        #push{
+            height: 2px;
+            background: #AC7474;
+        }
+        #footer {
+            height: 60px;
+        }
+        #footer {
+            background-color: #f5f5f5;
+        }
+        .header-padding{
+            padding:20px 10px 10px 10px;
+        }
+        .order-cart-container{
+            left: 0;
+right: 0;
+width: 100%;
+position: fixed;
+z-index: 1000;
+min-height:100px;
+bottom: -1px;
+padding-bottom: 1px;
+        }
+    </style>
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-touch.js"></script>
+    <script src="lib/angular-resource.js"></script>
+    <script src="lib/angular-animate.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/ui-bootstrap-tpls-0.6.0.min.js"></script>
+    <script src="lib/jquery-1.7.1.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script src="js/app.js"></script>
+
+    <script src="js/controllers.js"></script>
+    <script src="js/memory-services.js"></script>
+    <script src="js/rest-services.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+
+    <!-- Part 1: Wrap all page content here -->
+    <div id="wrap">
+
+        <!-- Fixed navbar -->
+        <!--<div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="#">{{allData.restaurant_info.restaurant_name}}</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a>
+                            </li>
+                            <li><a href="" ng-click="open('/about')">About</a>
+                            </li>
+                            <li><a href="" ng-click="open('/contact')">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>-->
+
+        <!-- Begin page content -->
+        
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <div class='span12 header-padding' >
+
+                    <div class='back-button '>
+                        <a class='{{backbuttondisplay}}' ng-click="goBack('{{backbuttonpath}}')">
+                            <img src='img/back_light.svg' />
+                        </a>
+                    </div>
+                    <div class='res-icon'>
+                        <img src="{{allData.logo_urls[0].logo_url}}" />
+                        <p class='center'>{{allData.restaurant_info.address_1}}, {{allData.restaurant_info.city_town}}</p>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div ng-view class='row-fluid' ng-class=" slide"></div>
+
+        </div>
+    </div>
+
+    <div id="push" class='row-fluid'></div>
+    <div class='container-fluid order-cart-container'>
+        
+
+        <div id="order-cart" class='row-fluid'>
+            <div class='ng-scrollview ng-scrollview-horiz ng-scrollview-paged'>
+                <div class="ng-scrollview-horiz ng-scrollview-vert ng-scrollview-paged">
+                    <div class="ng-scrollview-content" ng-swipe-left="goLeft()" ng-swipe-right="goRight()" ng-style="slideStyle">
+                        <ul class="ng-scrolliview-list">
+                            <li class='ng-scrollview-item slide' ng-repeat="(key, order) in cart">
+                                <div class='ng-scrollview-box'>
+                                    <img class='img-rounded my-img' data-src='holder.js/300*200' src="{{order.menu_item_images[1].image_url}}" alt="">
+                                    <div class='item-name'>{{order.menu_item_name}}</div>
+                                    <div><span class='item-quantity'>{{order.quantity}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <p class="muted credit">&copy<a href="http://facebook.com/rikesh1989">Rikesh Subedi</a> .</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

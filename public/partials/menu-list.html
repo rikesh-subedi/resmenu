@@ -1,0 +1,106 @@
+<style>
+    .menu-list-items{
+        
+    }
+    .menu-item{
+        width: 98%;
+height: 150px;
+display: block;
+margin-top: 1px;
+background: #DAAC8C;
+margin: 1px auto;
+    }
+    .menu-item-inner{
+        padding:20px 10px 10px 10px;
+
+    }
+    .left-part{
+        width:12%;
+        float:left;
+        
+        height:100%;
+    }
+    .left-part .item-img{
+        width:80%;
+        height:80%;
+       
+        border-radius:5px;
+        margin:0 auto;
+    }
+    .left-part .item-img>img{
+        width:100px;
+        height:100px;
+    }
+    .right-part{
+        width:20%;
+        float:left;
+        /*border:1px solid gray;*/
+        height:100%;
+    }
+    .middle-part{
+        width:67%;
+        float:left;
+        /* border:1px solid gray; */
+        height:100%;
+    }
+    .order-button a{
+        width: 40px;
+font-size: 8px;
+padding: 0;
+font-family: sans-serif;
+    }
+</style>
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <a class="topcoat-icon-button--quiet back-button" href="" ng-click="back()">
+            <span class="topcoat-icon topcoat-icon--back"></span>
+        </a>
+    </div>
+    <div class="topcoat-navigation-bar__item center full" style="margin-left:7px">
+        <h1 class="topcoat-navigation-bar__title">{{menuname}}</h1>
+    </div>
+</div>
+<div class="search-bar" style='margin-left:7px'>
+    <input ng-model="query" type="search" placeholder="search" class="topcoat-search-input search-key">
+</div>
+<div class="topcoat-list__container scroller" style="top:138px;">
+    <div class='menu-list-items' >
+        <div class='menu-item' ng-repeat="menu in menulist.menu_items | filter:query | orderBy:orderProp" class="topcoat-list__item">
+            <div class='menu-item-inner'>
+                <div class='edit ed-food-item'>
+                                            <div class='image-box'>
+                                                    <img class='img-rounded my-img' data-src='holder.js/300*200' src="{{menu.menu_item_images[1].image_url}}" alt="">
+                                            </div>
+                                            
+                                            
+                                         </div>
+                <div class="edit ed-food-details">
+                                            <div class='item-name'>{{menu.menu_item_name}}</div>
+                                            <div> {{menu.menu_item_description}} </div>
+                                            <div style="border-top:1px solid dashed"><span class='menutime label label-info'><i class='sweet-icon icon-time'></i> 20 min</span>&nbsp;&nbsp;<span class="menu-price label label-info"><i>$ </i> {{menu.menu_item_price}}</span></div>
+                                            
+                                        </div>
+                <div class='edit ed-remove'>
+                    <div class="action-details pull-right">
+                         <div class='order-button'>
+                         <a ng-click='orderNow($index,menu.item_uid)' class="btn btn-primary"><i class="icon-plus"></i> <div> ORDER </div></a>
+                     </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<!--
+
+
+               
+               
+                
+                
+                
+-->

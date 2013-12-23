@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-touch.js"></script>
+    <script src="lib/angular-resource.js"></script>
+    <script src="lib/angular-animate.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/ui-bootstrap-tpls-0.6.0.min.js"></script>
+    <script src="lib/jquery-1.7.1.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script src="lib/socket.io.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/memory-services.js"></script>
+    <script src="js/rest-services.js"></script>
+    <style>
+        .sticky {
+            position: fixed;
+            
+            top: 0;
+        }
+        html,
+        body {
+            height: 100%;
+        }
+        #header {
+            height: 100px;
+            /*position:fixed;*/
+            top: 0;
+            background: #e5e5e4;
+            border: 1px solid red;
+        }
+        #content {
+            margin-top: 100px;
+            margin-bottom: 100px;
+            height: 100%;
+            clear: both;
+            background: #e2e2e2;
+            
+            padding-bottom:100%;
+        }
+        #footer {
+            bottom: 0;
+            position: fixed;
+            right: 0;
+            left: 0;
+            z-index: 1030;
+            margin-bottom: 0;
+            background: #498957;
+        }
+        .back-button img {
+            width: 20px;
+        }
+        .center-div{
+            width: 260px;
+        height: auto;
+        margin: 0 auto;
+        
+        position: relative;
+        
+        }
+    </style>
+</head>
+
+<body ng-controller="MainCtrl">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <ul class='back-button nav' style="">
+                    <li>
+                        <a class='{{backbuttondisplay}}' ng-click="goBack('{{backbuttonpath}}')">
+                            <img src='img/back_light.svg' />
+                        </a>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="brand" href="#">{{allData.restaurant_info.restaurant_name}}</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li>
+
+                        </li>
+                        <li class="active"><a href="#">Home</a>
+                        </li>
+                        <li><a href="" ng-click="open('/about')">About</a>
+                        </li>
+                        <li><a href="" ng-click="open('/contact')">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+<!--
+        <div id="header" class='row-fluid'>
+            <div class="container-fluid">
+                <div class="row-fluid">
+
+                    <div class='span12'>
+
+
+                        <div class='res-icon'>
+                            <img src="{{allData.logo_urls[0].logo_url}}" />
+                            <p class='center'>{{allData.restaurant_info.address_1}}, {{allData.restaurant_info.city_town}}</p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+-->
+        <div id="content" class='row-fluid'>
+            <div ng-view class='row-fluid' ng-class=" slide"></div>
+        </div>
+        <!--
+                            <div id="footer" class='row-fluid'>
+                                
+                            </div>
+            -->
+        <div id="footer" class="" >
+             <!-- <rs-scrollview></rs-srcollview> -->
+                 <div id="order-cart" class='row-fluid'>
+                    <div ng-hide='orderChecked'>
+                    <div style="width:100%"><div class='center-div'><div class='btn-group'><a ng-click="openEdit('edit')"class='btn'>Edit Orders</a><a class='btn'>Hide</a><a class='btn'>Place Orders</a></div></div></div>
+                    <div class='ng-scrollview ng-scrollview-horiz ng-scrollview-paged'>
+                        <div class="ng-scrollview-horiz ng-scrollview-vert ng-scrollview-paged">
+                            <div class="ng-scrollview-content" ng-swipe-left="goLeft()" ng-swipe-right="goRight()" ng-style="slideStyle">
+                                <ul class="ng-scrolliview-list">
+                                    <li class='ng-scrollview-item slide' ng-repeat="(key, order) in cart">
+                                        <div class='ng-scrollview-box'>
+                                            <img class='img-rounded my-img' data-src='holder.js/300*200' src="{{order.menu_item_images[1].image_url}}" alt="">
+                                            <div class='item-name'>{{order.menu_item_name}}</div>
+                                            <div><span class='item-quantity'>{{order.quantity}}</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+                    <div ng-show='orderChecked'>
+
+                        <div style="width:100%"><div class='center-div'>
+                            <div class='final-order-details'>
+                                 <span class='badge badge-warning'><i class='icon-time'></i>20 mins </span>&nbsp; &nbsp; <span class='badge badge-warning'> $ {{finalTotalAmount}} </span>
+                            </div>
+                            <div class='btn-group'><a ng-click="sendOrder({userId:'123',cardId:'234'})"class='btn'>Send Orders</a><a ng-click='cancelOrder();' class='btn'>Cancel Orders</a></div></div></div>
+                    </div>
+                    
+                    
+                </div> 
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
+<script>
+    //var header = document.querySelector('#header');
+    //var origOffsetY = header.offsetTop;
+
+    function onScroll(e) {
+        //window.scrollY >= origOffsetY ? header.classList.add('sticky') :
+           // header.classList.remove('sticky');
+    }
+
+    document.addEventListener('scroll', onScroll);
+</script>

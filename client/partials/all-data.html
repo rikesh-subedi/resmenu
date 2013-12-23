@@ -1,0 +1,21 @@
+
+    <style>
+        .menu-type{
+            border:2px solid gray;
+            border-radius:5px;
+            min-height:200px;
+            padding:10px;
+        }
+    </style>
+    <div class='span6 menu-type' ng-repeat="menu in allData.menus | filter:query | orderBy:orderProp" class="topcoat-list__item">
+        <a class='row-fluid' ng-click="go('/menus/' + menu.id +'/'+menu.menu_name)">
+            <div class='span12'>
+                <div class='span8'>
+                    <span class='span12'><h1>{{menu.menu_name}}</h1> </span>
+                <span class='span12'>From:{{menu.menu_duration_time_start}} to {{menu.menu_duration_time_end}}</span>
+                <span class='span12'><p>{{menu.menu_description}}</p></span>
+                </div>
+                
+            </div>
+          </a>
+    </div>

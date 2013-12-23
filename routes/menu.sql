@@ -1,0 +1,112 @@
+DROP TABLE `menu`;
+
+CREATE TABLE `menu` (
+  `id` mediumint(8) unsigned NOT NULL auto_increment,
+  `code` varchar(255),
+  `category` TEXT default NULL,
+  `name` TEXT default NULL,
+  `price` varchar(100) default NULL,
+  `time` mediumint default NULL,
+  PRIMARY KEY (`id`)
+) AUTO_INCREMENT=1;
+
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Z3J 4A8","2","cursus et,","$2.08",28);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("X4O 3R6","2","a, scelerisque","$15.84",14);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("T3N 0K1","2","egestas, urna","$15.63",21);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("B0W 9M1","2","scelerisque mollis.","$15.81",20);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("O4Y 5G7","2","dui. Fusce","$11.22",13);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("H0O 9R5","2","odio. Phasellus","$2.23",18);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("X6L 3U8","2","accumsan neque","$11.30",27);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("W7T 3Z8","2","nulla magna,","$7.44",21);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("F7D 4P5","2","parturient montes,","$16.97",28);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Q2V 2V9","2","ac orci.","$9.30",25);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("R1C 4Z0","3","ac libero","$11.10",28);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("U1G 7X1","3","Pellentesque tincidunt","$17.49",12);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("X3Q 4Z3","3","ullamcorper viverra.","$15.58",23);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("O1X 3E6","3","semper. Nam","$8.76",27);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("U2I 7F6","3","tempus non,","$18.13",10);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("T8T 6Z0","3","velit eu","$11.50",28);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("L4J 4U7","3","semper rutrum.","$7.55",16);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("X9S 0P8","3","euismod et,","$0.29",17);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("B2D 2W7","3","non sapien","$16.88",23);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Q0H 6B1","3","vehicula et,","$3.20",20);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("O8X 3P9","5","blandit viverra.","$19.95",20);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("X3O 4F4","5","neque non","$7.86",15);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Q9N 5T8","5","est mauris,","$16.31",18);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("V4A 9O5","5","scelerisque neque.","$16.86",12);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("K2M 9F1","5","Fusce aliquam,","$5.80",12);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("M0P 6L4","5","nibh dolor,","$0.23",11);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("K4P 1H7","5","mauris blandit","$11.49",12);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("E5A 7C4","5","volutpat nunc","$14.19",20);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("S3M 9M9","5","at, egestas","$2.50",30);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Y6R 4B6","5","semper, dui","$7.38",19);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("C0Q 3V1","7","Fusce mi","$9.74",10);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("T5T 8Z6","7","Sed diam","$18.98",24);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Z8P 4U6","7","eleifend. Cras","$3.91",25);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("H0E 3R6","7","a nunc.","$6.27",25);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("T4D 5Q6","7","justo. Proin","$15.50",18);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("E3G 1A6","7","a nunc.","$19.69",30);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("M4K 2B8","7","at lacus.","$12.55",17);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("X1R 5V4","7","dui, semper","$0.73",21);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Y4E 5C7","7","ullamcorper eu,","$19.87",15);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("D2K 1V2","7","Donec fringilla.","$5.11",16);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Q5O 7J5","11","Nunc sed","$15.61",15);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("T7W 5F2","11","Vivamus non","$0.52",13);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("R2S 7B6","11","libero mauris,","$4.97",14);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("X4I 7R4","11","sed tortor.","$12.84",16);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("A5A 3C0","11","tempus, lorem","$0.64",27);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("U5K 0T5","11","in felis.","$10.54",18);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("V9F 8P2","11","Phasellus dapibus","$11.24",20);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("S3F 3W2","11","Nunc quis","$11.28",28);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("T7G 8V9","11","ante ipsum","$16.90",22);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("L1Q 1R8","11","ligula eu","$19.30",19);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("T7I 3B3","13","erat neque","$17.31",25);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("U0D 6H8","13","lorem, vehicula","$7.18",10);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("P7X 4Q6","13","gravida non,","$3.15",11);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("U6G 4M8","13","consequat, lectus","$1.58",14);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Q2O 6Q4","13","Phasellus dolor","$15.08",18);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("M5B 7L5","13","venenatis a,","$18.76",10);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("I6L 9I4","13","vehicula risus.","$10.22",12);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("C2O 5C4","13","ornare, elit","$17.94",25);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("R3K 3U8","13","dui. Suspendisse","$5.23",15);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("J8A 8K7","13","lorem eu","$10.64",24);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("M2R 8S6","2","Vivamus nibh","$12.34",26);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Z4K 0Y1","2","at pede.","$8.44",22);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("P2Y 3A6","2","penatibus et","$1.56",18);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("M6F 8L0","2","Vestibulum ut","$14.02",29);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("I2T 0X7","2","metus. In","$15.67",28);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("F2Z 1K7","2","pede blandit","$18.87",30);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("A6J 0I0","2","non, luctus","$0.22",26);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("R6R 1S2","2","vitae, orci.","$17.49",10);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("M8B 3N9","2","Duis ac","$16.87",25);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("D2W 5B6","2","nulla ante,","$19.52",10);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("G9B 5Y5","3","nisl. Maecenas","$10.94",22);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("E0S 9H7","3","ac, fermentum","$5.84",25);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("P0D 1Y4","3","nibh. Phasellus","$8.78",11);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("R7P 7I1","3","erat eget","$0.15",22);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("B8E 9J5","3","ligula elit,","$5.94",21);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Q2L 9C4","3","magna a","$7.27",24);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("L8V 3G7","3","justo faucibus","$0.51",29);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("L9Q 7D3","3","malesuada fringilla","$16.46",13);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("F5D 5E7","3","Donec egestas.","$2.10",26);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("A5T 1Y4","3","sit amet,","$4.10",18);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("G6T 4I1","5","lectus, a","$1.97",25);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("D0O 2K9","5","eu tellus","$0.52",23);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("N5F 6I2","5","Ut sagittis","$2.74",17);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("V2L 8Q2","5","ac ipsum.","$0.19",28);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("V9J 1C7","5","consequat, lectus","$5.24",14);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("U4N 2J9","5","nulla magna,","$16.55",28);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("O0O 8J0","5","et ultrices","$15.43",14);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("G6A 8X1","5","auctor, nunc","$1.48",25);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("D1X 2W7","5","dui quis","$16.87",24);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("F9X 5Y7","5","orci. Ut","$15.03",20);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("V0K 1B6","7","volutpat. Nulla","$18.43",16);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("H3F 1O9","7","porttitor vulputate,","$13.92",24);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("B8Y 9P3","7","cursus, diam","$8.66",27);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("J5L 3H9","7","ultricies ornare,","$13.44",12);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Y1H 0V6","7","rutrum lorem","$10.29",12);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("B5H 6N2","7","vel arcu","$7.21",21);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("B2N 6R1","7","ultrices sit","$6.11",10);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("Q9I 9W1","7","semper rutrum.","$18.71",26);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("I3V 1Z1","7","Proin nisl","$15.01",10);
+INSERT INTO `menu` (`code`,`category`,`name`,`price`,`time`) VALUES ("S5R 2U9","7","at fringilla","$13.47",27);

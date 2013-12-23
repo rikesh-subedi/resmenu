@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+<!--    <link href="css/bootstrap-responsive.css" rel="stylesheet">-->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-touch.js"></script>
+    <script src="lib/angular-resource.js"></script>
+    <script src="lib/angular-animate.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/ui-bootstrap-tpls-0.6.0.min.js"></script>
+    <script src="lib/jquery-1.7.1.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script src="lib/socket.io.js"></script>
+<!--<script src="js/kitchen.js"></script>
+    <script src="js/kitchen_ctrl.js"></script>
+    <script src="js/memory-services.js"></script>
+-->
+   
+</head> 
+<body>
+This is watch for chef
+<ul id="ul">
+
+</ul>
+<script>
+   var socket = io.connect(location.hostname);
+    //var host = location.origin.replace(/^http/, 'ws')
+     // var ws = new WebSocket(host);
+    /*ws.onmessage = function (event) {
+        var li = document.createElement('li');
+        li.innerHTML = JSON.parse(event.data);
+        document.querySelector('#ul').appendChild(li);
+      };
+    */
+    socket.on('orders',function(data){
+       var li = document.createElement('li');
+        li.innerHTML = data.cardId +" "+ data.userId;
+        document.querySelector('#ul').appendChild(li);
+    })
+</script>
+
+
+</body>
+
+</html>
